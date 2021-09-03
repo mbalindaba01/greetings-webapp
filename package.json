@@ -1,0 +1,31 @@
+{
+  "name": "greetings-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbalindaba01/greetings-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbalindaba01/greetings-webapp/issues"
+  },
+  "homepage": "https://github.com/mbalindaba01/greetings-webapp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "mocha": "^9.1.1",
+    "pg": "^8.7.1"
+  }
+}
