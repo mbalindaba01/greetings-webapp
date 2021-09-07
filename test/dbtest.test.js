@@ -28,14 +28,14 @@ describe('The greetings-webapp database', function () {
     it('should be able to count the names greeted in the database', async () => {
         await namesGreeted.setName("Lungile")
         await namesGreeted.setName("Sabie")
-        assert.equal(2, await namesGreeted.namesList())
+        assert.equal(2, await namesGreeted.nameCount())
     });
 
     it('should test duplication in the database', async function () {
         await namesGreeted.setName("Yonela")
         await namesGreeted.setName("yoNela")
         console.log(namesGreeted.getName())
-        assert.equal(1, await namesGreeted.namesList())
+        assert.equal(1, await namesGreeted.nameCount())
     });
 
     it('should be able to reset the database', async function(){
