@@ -1,3 +1,14 @@
 language: node_js
 node_js:
   - 12
+
+  env:
+  - DATABASE_URL=postgres://rtbxhlnwqofahl:8668ab7cab6ff6c93c58d91436ff49703793425de56f82ae0d0f7eab8281505b@ec2-34-200-94-86.compute-1.amazonaws.com:5432/d6kjbq4ksnd9j4
+
+
+before_script:
+  - psql -c 'create database  greetings;' -U postgres
+  - psql -U postgres -d greetinfs -a -f tables.sql
+
+services:
+  - postgresql

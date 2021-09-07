@@ -14,7 +14,7 @@ const routes = Routes()
 
 //set up pool connection to database
 const pool = new Pool({
-  connectionString: 'postgres://oygnbgbdfpfsyl:325a9a8705dc1bd16a4339834a7d345a8d2f25babe8d74cd6f08c84131d15c67@ec2-18-215-44-132.compute-1.amazonaws.com:5432/ddd21pda85tb2v',
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
