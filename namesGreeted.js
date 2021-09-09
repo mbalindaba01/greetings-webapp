@@ -1,10 +1,12 @@
 const { Pool } = require('pg')
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
+    connectionString: process.env.DATABASE_URL || 'postgresql://mbali:Zanokuhle!28@localhost:5432/testwebapp',
+    // ssl: {
+    //   rejectUnauthorized: false
+    // }
 })
+
+console.log(pool)
 
 module.exports = () => {
     let username = ""

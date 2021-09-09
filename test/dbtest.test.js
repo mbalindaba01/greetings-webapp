@@ -1,22 +1,23 @@
 const assert = require('assert')
 const NamesGreeted = require('../namesGreeted')
 const pg = require("pg")
-const { it } = require('mocha')
+require('dotenv').config()
 const Pool = pg.Pool
 
 let namesGreeted = NamesGreeted()
 
 
 const pool = new Pool({
-    connectionString:'postgres://rtbxhlnwqofahl:8668ab7cab6ff6c93c58d91436ff49703793425de56f82ae0d0f7eab8281505b@ec2-34-200-94-86.compute-1.amazonaws.com:5432/d6kjbq4ksnd9j4',
-    ssl: {
-      rejectUnauthorized: false
-    }
+    user: 'mbali',
+    host: 'localhost',
+    database: 'testwebapp',
+    password: 'Zanokuhle!28',
+    port: 5432,
 })
 
 describe('The greetings-webapp database', function () {
 
-    beforeEach(async function(){
+    beforeEach(async() => {
         // clean the tables before each test run
         pool.query("delete from users")
     })
