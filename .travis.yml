@@ -7,7 +7,7 @@ env:
 
 before_script:
   - psql -c 'create database  testwebapp;' -U postgres
-  - psql -U postgres -d testwebapp -a -f users.sql
+  - psql -U postgres -d testwebapp -a -f tables.sql
 
 services:
   - postgresql
