@@ -19,36 +19,35 @@ describe('The greetings-webapp database', function () {
 
     beforeEach(async() => {
         // clean the tables before each test run
-        pool.query("delete from users")
+        await pool.query("delete from users")
     })
 
     it('should be able to set names and get them from database', async () => {
-        namesGreeted.setName("Mbali")
+        await namesGreeted.setName("Mbali")
         assert.deepEqual("mbali", await namesGreeted.getName())
     });
 
     it('should be able to count the names greeted in the database', async () => {
-        namesGreeted.setName("Lungile")
-        namesGreeted.setName("Sabie")
+        await namesGreeted.setName("Lungile")
+        await namesGreeted.setName("Sabie")
         assert.equal(2, await namesGreeted.nameCount())
     });
 
     it('should be able to count how many times each user has been greeted', async () => {
-        namesGreeted.setName("Simo")
-        namesGreeted.setName("Simo")
+        await namesGreeted.setName("Simo")
+        await namesGreeted.setName("Simo")
         assert.equal(2, await namesGreeted.greetCount())
     });
 
     it('should test duplication in the database', async function () {
-        namesGreeted.setName("Yonela")
-        namesGreeted.setName("yoNela")
-        console.log(namesGreeted.getName())
+        await namesGreeted.setName("Yonela")
+        await namesGreeted.setName("yoNela")
         assert.equal(1, await namesGreeted.nameCount())
     });
 
     it('should be able to reset the database', async function(){
-        namesGreeted.setName("Mbali")
-        namesGreeted.removeNames()
+        await namesGreeted.setName("Mbali")
+        await namesGreeted.removeNames()
         assert.equal(0, await namesGreeted.nameCount())
     });
 
