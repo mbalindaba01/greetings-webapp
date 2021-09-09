@@ -8,7 +8,7 @@ let namesGreeted = NamesGreeted()
 
 
 const pool = new Pool({
-    user: 'mbali',
+    user: 'postgres',
     host: 'localhost',
     database: 'testwebapp',
     password: 'Zanokuhle!28',
