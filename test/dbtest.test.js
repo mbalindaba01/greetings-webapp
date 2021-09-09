@@ -24,7 +24,7 @@ describe('The greetings-webapp database', function () {
 
     it('should be able to set names and get them from database', async () => {
         await namesGreeted.setName("Mbali")
-        assert.deepEqual("mbali", await namesGreeted.getName())
+        assert.deepEqual("mbali", namesGreeted.getName())
     });
 
     it('should be able to count the names greeted in the database', async () => {
