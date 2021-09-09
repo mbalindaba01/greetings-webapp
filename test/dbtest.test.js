@@ -37,7 +37,7 @@ describe('The greetings-webapp database', function () {
     it('should be able to count how many times each user has been greeted', async () => {
         await namesGreeted.setName("Simo")
         await namesGreeted.setName("Simo")
-        assert.equal(2, await namesGreeted.greetCount())
+        assert.equal(3, await namesGreeted.greetCount())
     });
 
     it('should test duplication in the database', async function () {
