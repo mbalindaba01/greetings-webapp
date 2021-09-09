@@ -22,16 +22,16 @@ describe('The greetings-webapp database', function () {
         await pool.query("delete from users")
     })
 
-    it('should be able to set names and get them from database', async () => {
-        await namesGreeted.setName("Mbali")
-        assert.deepEqual("mbali", namesGreeted.getName())
-        await pool.query("truncate users")
-    });
-
     it('should be able to count the names greeted in the database', async () => {
         await namesGreeted.setName("Lungile")
         await namesGreeted.setName("Sabie")
         assert.equal(2, await namesGreeted.nameCount())
+    });
+
+    it('should be able to set names and get them from database', async () => {
+        await namesGreeted.setName("Mbali")
+        assert.deepEqual("mbali", namesGreeted.getName())
+        await pool.query("truncate users")
     });
 
     it('should be able to count how many times each user has been greeted', async () => {
