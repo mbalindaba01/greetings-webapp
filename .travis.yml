@@ -2,13 +2,12 @@ language: node_js
 node_js:
   - 12
 
-  env:
+env:
   - DATABASE_URL=postgresql://mbali:Zanokuhle!28@localhost:5432/testwebapp
 
-
 before_script:
-  - psql -c 'create database testwebapp;' -U postgres
-  - psql -U postgress -d testwebapp -a -f tables.sql
+  - psql -c 'create database  testwebapp;' -U postgres
+  - psql -U postgres -d testwebapp -a -f users.sql
 
 services:
   - postgresql
