@@ -8,7 +8,7 @@ node_js:
 
 before_script:
   - psql -c 'create database testwebapp;' -U postgres
-  - psql -U mbali -d testwebapp -a -f tables.sql
+  - psql -U postgress -d testwebapp -a -f tables.sql
 
 services:
   - postgresql
