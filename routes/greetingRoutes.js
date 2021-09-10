@@ -3,7 +3,6 @@ const { Pool } = require('pg')
 const GreetFactory = require('../namesGreeted')
 const LanguageFactory = require('../languagePicker')
 
-const namesGreeted = GreetFactory()
 const languagePicker = LanguageFactory()
 
 const pool = new Pool({
@@ -12,6 +11,8 @@ const pool = new Pool({
       rejectUnauthorized: false
     }
 })
+
+const namesGreeted = GreetFactory(pool)
 
 module.exports = () => {
     const main = async (req, res, next) => {

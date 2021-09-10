@@ -4,12 +4,17 @@ const pg = require("pg")
 require('dotenv').config()
 const Pool = pg.Pool
 
-let namesGreeted = NamesGreeted()
-
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgresql://mbali:Zanokuhle!28@localhost:5432/testwebapp'
+    user: 'mbali',
+    host: 'localhost',
+    database: 'testwebapp',
+    password: 'Zanokuhle!28',
+    port: 5432,
 })
+
+let namesGreeted = NamesGreeted(pool)
+
 
 describe('The greetings-webapp database', function () {
 
@@ -43,7 +48,7 @@ describe('The greetings-webapp database', function () {
 
     it('should be able to reset the database', async () => {
         await namesGreeted.setName("Mbali")
-        await namesGreeted.removeNames()
+        namesGreeted.removeNames()
         assert.equal(0, await namesGreeted.nameCount())
     });
 
