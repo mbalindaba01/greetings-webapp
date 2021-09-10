@@ -8,11 +8,7 @@ let namesGreeted = NamesGreeted()
 
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'testwebapp',
-    password: 'Zanokuhle!28',
-    port: 5432,
+    connectionString: process.env.DATABASE_URL || 'postgresql://mbali:Zanokuhle!28@localhost:5432/testwebapp'
 })
 
 describe('The greetings-webapp database', function () {
@@ -31,28 +27,27 @@ describe('The greetings-webapp database', function () {
     it('should be able to set names and get them from database', async () => {
         await namesGreeted.setName("Mbali")
         assert.deepEqual("mbali", namesGreeted.getName())
-        await pool.query("truncate users")
     });
 
     it('should be able to count how many times each user has been greeted', async () => {
         await namesGreeted.setName("Simo")
         await namesGreeted.setName("Simo")
-        assert.equal(3, await namesGreeted.greetCount())
+        assert.equal(2, await namesGreeted.greetCount())
     });
 
-    it('should test duplication in the database', async function () {
+    it('should test duplication in the database', async () => {
         await namesGreeted.setName("Yonela")
         await namesGreeted.setName("yoNela")
         assert.equal(1, await namesGreeted.nameCount())
     });
 
-    it('should be able to reset the database', async function(){
+    it('should be able to reset the database', async () => {
         await namesGreeted.setName("Mbali")
-        namesGreeted.removeNames()
+        await namesGreeted.removeNames()
         assert.equal(0, await namesGreeted.nameCount())
     });
 
-    after(function () {
+    after(() => {
         pool.end();
     })
 });

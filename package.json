@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
