@@ -47,7 +47,7 @@ describe('The greetings-webapp database', function () {
     });
 
     it('should be able to reset the database', async () => {
-        await namesGreeted.setName("Mbali")
+        namesGreeted.setName("Mbali")
         namesGreeted.removeNames()
         assert.equal(0, await namesGreeted.nameCount())
     });
