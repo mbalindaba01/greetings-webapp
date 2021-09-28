@@ -55,6 +55,7 @@ module.exports = () => {
 
     const counter = async(req, res, next) => {
         namesGreeted.removeNames()
+        req.flash('warning', 'Counter Cleared')
         res.redirect("/")
     }
 
