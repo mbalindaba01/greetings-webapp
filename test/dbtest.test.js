@@ -6,7 +6,7 @@ const Pool = pg.Pool
 
 
 const pool = new Pool({
-    user: 'mbali',
+    user: 'postgres',
     host: 'localhost',
     database: 'testwebapp',
     password: 'Zanokuhle!28',
@@ -47,7 +47,7 @@ describe('The greetings-webapp database', function () {
     });
 
     it('should be able to reset the database', async () => {
-        namesGreeted.setName("Mbali")
+        await namesGreeted.setName("Mbali")
         namesGreeted.removeNames()
         assert.equal(0, await namesGreeted.nameCount())
     });
